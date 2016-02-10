@@ -1,0 +1,39 @@
+{
+  "name": "Preprocesado",
+  "version": "0.0.1",
+  "description": "Preprocesado",
+  "main": "index.html",
+  "scripts": {
+    "static": "rm -rf dist && mkdir dist",
+    "jade": "jade src/template/index.jade -o dist --pretty",
+    "stylus": "stylus --include-css -u nib --import nib -c src/stylus/index.styl -o dist/style.css",
+    "browserify": "browserify --transform coffeeify --extension=coffee src/main.coffee -o dist/bundle.js",
+    "build": "npm run static && npm run jade && npm run stylus && npm run browserify",
+    "start": "cd dist && python -m SimpleHTTPServer 8080",
+    "clean": "rm -rf dist *.log",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formatcom/chip8.git"
+  },
+  "keywords": [
+    "coffee",
+    "coffeescript",
+    "javascript",
+    "html5"
+  ],
+  "author": "Vinicio Valbuena (FormatCom)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formatcom/pizarra/issues"
+  },
+  "homepage": "https://github.com/formatcom/pizarra#readme",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "coffeeify": "^2.0.1",
+    "jade": "^1.11.0",
+    "nib": "^1.1.0",
+    "stylus": "^0.53.0"
+  }
+}
